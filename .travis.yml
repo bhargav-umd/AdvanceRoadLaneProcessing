@@ -18,8 +18,10 @@ matrix:
             - g++-5
             - cmake
             - cmake-data
-	    - git
-	    - ffmpeg
+
+            # ADDITIONAL PACKAGES
+            
+            - git
             - libgtk2.0-dev
             - pkg-config
             - libavcodec-dev
@@ -35,6 +37,8 @@ matrix:
             - libjasper-dev
             - libdc1394-22-dev
       env: COMPILER=g++-5
+
+# OPEN CV INSTALLATION BEGINS
 
 before_script:
   - git clone https://github.com/opencv/opencv.git
@@ -58,17 +62,12 @@ before_script:
 
   - cd ../../
 
-#before_script:
-#  - "export DISPLAY=:99.0"
-#  - "sh -e /etc/init.d/xvfb start"
-#  - sleep 3 # give xvfb some time to start
+# END OPENCV INSTALLATION
 
 before_install:
   - pip install --user cpp-coveralls
-
 install:
   - sudo apt-get install -y -qq lcov
-
 script:
   - export CXX=$COMPILER;
   - mkdir build
@@ -82,4 +81,4 @@ after_success:
   - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
 
 notifications:
-  email: false
+  email: bhargav@umd.edu
