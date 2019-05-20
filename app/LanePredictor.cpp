@@ -48,9 +48,9 @@ std::string LanePredictor::wrongLanePredictor(cv::Vec4d yellow_line) {
  * @param[in]  frame [cv::Mat]
  * @return       [cv::Vect4d]
  */
-cv::Vec4d LanePredictor::detectYellow(cv::Mat frame) {
+cv::Vec4d LanePredictor::detectYellow() {
   cv::Mat copy_fame; // to store input image copy
-  frame.copyTo(copy_fame);
+  this->inputImageP.copyTo(copy_fame);
   cv::Point pnt1;
   cv::Point pnt2;
   cv::Vec4d yellow_lanes;
@@ -59,7 +59,7 @@ cv::Vec4d LanePredictor::detectYellow(cv::Mat frame) {
   std::vector<cv::Vec4i> lines_p;
   std::vector<cv::Vec4i> selected_lines;
 
-  cv::Mat hsvThresholdImage = LanePredictor::hsvThresholdY(frame);
+  cv::Mat hsvThresholdImage = LanePredictor::hsvThresholdY(this->inputImageP);
   cv::Mat edgesP = LanePredictor::edgeDetector(hsvThresholdImage);
   cv::Mat roiP = LanePredictor::roiMaskSelection(edgesP);
 
@@ -151,59 +151,62 @@ cv::Mat LanePredictor::hsvThresholdY(cv::Mat frame) {
  * @param[in]  white_lanes  [cv::Vec4d]
  * @return     output      [cv::Mat]
  */
-cv::Mat LanePredictor::plotPolygon(cv::Mat input_image, cv::Vec4d yellow_lanes,
-                                   cv::Vec4d white_lanes) {
-  cv::Mat output;
-  input_image.copyTo(output);
-  cv::Point upper_yellow;
-  cv::Point lower_yellow;
-  cv::Point upper_white;
-  cv::Point lower_white;
-  double ylower = 480; // horizontal lower side of polygon
-  double yupper = 360; // horizontal upper side of polygon
-  // Splitting points from yellow lane
-  double x11 = yellow_lanes[0];
-  double y11 = yellow_lanes[1];
-  double x21 = yellow_lanes[2];
-  double y21 = yellow_lanes[3];
-  double slope1 = ((y21 - y11) / (x21 - x11));
-  // Splitting points from white lane
-  double x12 = white_lanes[0];
-  double y12 = white_lanes[1];
-  double x22 = white_lanes[2];
-  double y22 = white_lanes[3];
-  double slope2 = ((y22 - y12) / (x22 - x12));
-
-  // setting upper and lower y coordinate limits
-  upper_white.y = upper_yellow.y = yupper;
-  lower_white.y = lower_yellow.y = ylower;
-
-  // calculating x coordinates for the polygon edges
-  upper_yellow.x = x11 + (yupper - y11) / slope1;
-  lower_yellow.x = x11 + (ylower - y11) / slope1;
-  upper_white.x = x12 + (yupper - y12) / slope2;
-  lower_white.x = x12 + (ylower - y12) / slope2;
-
-  // Storing all points as vector, for plotting
-  cv::Point pts[4] = {lower_yellow, upper_yellow, upper_white, lower_white};
-  // drawing polygon using in-built opencv function
-  cv::fillConvexPoly(output,                // output image
-                     pts,                   // vertices
-                     4,                     // number of vertices
-                     cv::Scalar(0, 0, 255), // color of polygon
-                     CV_AA);                // Anti-Aliasing
-
-  // plotting polygon boundary lines
-  line(input_image, lower_yellow, upper_yellow, cv::Scalar(25, 0, 51), 2,
-       CV_AA);
-  line(input_image, lower_white, upper_white, cv::Scalar(25, 0, 51), 2, CV_AA);
-  line(input_image, upper_yellow, upper_white, cv::Scalar(25, 0, 51), 2, CV_AA);
-  // adding transparency to the polygon
-  cv::addWeighted(output, 0.3, input_image, 1.0 - 0.3, 0, input_image);
-
-  return output;
-}
-
+// cv::Mat LanePredictor::plotPolygon(cv::Mat input_image, cv::Vec4d
+// yellow_lanes,
+//                                    cv::Vec4d white_lanes) {
+//   cv::Mat output;
+//   input_image.copyTo(output);
+//   cv::Point upper_yellow;
+//   cv::Point lower_yellow;
+//   cv::Point upper_white;
+//   cv::Point lower_white;
+//   double ylower = 480; // horizontal lower side of polygon
+//   double yupper = 360; // horizontal upper side of polygon
+//   // Splitting points from yellow lane
+//   double x11 = yellow_lanes[0];
+//   double y11 = yellow_lanes[1];
+//   double x21 = yellow_lanes[2];
+//   double y21 = yellow_lanes[3];
+//   double slope1 = ((y21 - y11) / (x21 - x11));
+//   // Splitting points from white lane
+//   double x12 = white_lanes[0];
+//   double y12 = white_lanes[1];
+//   double x22 = white_lanes[2];
+//   double y22 = white_lanes[3];
+//   double slope2 = ((y22 - y12) / (x22 - x12));
+//
+//   // setting upper and lower y coordinate limits
+//   upper_white.y = upper_yellow.y = yupper;
+//   lower_white.y = lower_yellow.y = ylower;
+//
+//   // calculating x coordinates for the polygon edges
+//   upper_yellow.x = x11 + (yupper - y11) / slope1;
+//   lower_yellow.x = x11 + (ylower - y11) / slope1;
+//   upper_white.x = x12 + (yupper - y12) / slope2;
+//   lower_white.x = x12 + (ylower - y12) / slope2;
+//
+//   // Storing all points as vector, for plotting
+//   cv::Point pts[4] = {lower_yellow, upper_yellow, upper_white, lower_white};
+//   // drawing polygon using in-built opencv function
+//   cv::fillConvexPoly(output,                // output image
+//                      pts,                   // vertices
+//                      4,                     // number of vertices
+//                      cv::Scalar(0, 0, 255), // color of polygon
+//                      CV_AA);                // Anti-Aliasing
+//
+//   // plotting polygon boundary lines
+//   line(input_image, lower_yellow, upper_yellow, cv::Scalar(25, 0, 51), 2,
+//        CV_AA);
+//   line(input_image, lower_white, upper_white, cv::Scalar(25, 0, 51), 2,
+//   CV_AA);
+//   line(input_image, upper_yellow, upper_white, cv::Scalar(25, 0, 51), 2,
+//   CV_AA);
+//   // adding transparency to the polygon
+//   cv::addWeighted(output, 0.3, input_image, 1.0 - 0.3, 0, input_image);
+//
+//   return output;
+// }
+/*  */
 /**
  * @brief   [LanePredictor::predictTurn]
  *          This file is a library file to predict turns based on the

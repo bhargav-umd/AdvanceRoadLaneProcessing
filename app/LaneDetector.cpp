@@ -82,15 +82,15 @@ LaneDetector::houghTransform(cv::Mat roi_image) {
  * @param[in]  frame_number [int]
  * @return frame        [cv::Mat]
  */
-cv::Mat LaneDetector::readFrame(int frame_number) {
-  cv::Mat frame; // matrix to store input frame
-  // Video Object to read frame
-  cv::VideoCapture cap("../Dataset/Dataset2.mp4");
-  cap.set(cv::CAP_PROP_POS_FRAMES, frame_number);
-  cap >> frame;
-
-  return frame;
-}
+// cv::Mat LaneDetector::readFrame(int frame_number) {
+//   cv::Mat frame; // matrix to store input frame
+//   // Video Object to read frame
+//   cv::VideoCapture cap("../Dataset/Dataset2.mp4");
+//   cap.set(cv::CAP_PROP_POS_FRAMES, frame_number);
+//   cap >> frame;
+//
+//   return frame;
+/* } */
 
 /**
  * @brief      LaneDetector::roiMaskSelection

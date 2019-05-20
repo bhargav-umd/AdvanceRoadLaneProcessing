@@ -1,3 +1,4 @@
+#pragma once
 #include "./LaneDetector.hpp"
 
 /**
@@ -17,7 +18,10 @@ private:
                             // std::vector<cv::Vec4i> selected_lines;
 
 public:
-  // LanePredictor(); // default constructor
+  // LanePredictor();
+  LanePredictor(cv::Mat imagess) /*: LaneDetector(cv::Mat image) */ {
+    this->inputImageP = imagess;
+  }; // default constructor
   // ~LanePredictor(); // default destructor
 
   /**
@@ -36,7 +40,7 @@ public:
    *
    * @return     { end points of the yellow lines  }
    */
-  cv::Vec4d detectYellow(cv::Mat);
+  cv::Vec4d detectYellow();
 
   /**
     * @brief      { to plot a polygon over detected lanes  }
@@ -47,7 +51,7 @@ public:
    *
    * @return     {Image with polygon plot }
    */
-  cv::Mat plotPolygon(cv::Mat, cv::Vec4d, cv::Vec4d);
+  // cv::Mat plotPolygon(cv::Mat, cv::Vec4d, cv::Vec4d);
 
   /**
    * @brief      {predict if vehicle is on wrong lane }

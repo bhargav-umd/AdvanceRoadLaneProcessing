@@ -45,7 +45,10 @@ private:
   double right_points;
 
 public:
-  // LaneDetector();     // Default constructor
+  LaneDetector() { ; }
+  LaneDetector(cv::Mat image) { this->input_image = image; };
+
+  // Default constructor
   // ~LaneDetector(); // Default Destructor
   /**
    * @brief      Reads a frame.
@@ -54,7 +57,7 @@ public:
    *
    * @return     { frame of the given frame index}
    */
-  cv::Mat readFrame(int frame_number);
+  //  cv::Mat readFrame(int frame_number);
 
   /**
    * @brief      { selects a trapezoidal region in given image}
