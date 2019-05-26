@@ -1,0 +1,106 @@
+\hypertarget{classReadAndDisplay}{}\section{Read\+And\+Display Class Reference}
+\label{classReadAndDisplay}\index{Read\+And\+Display@{Read\+And\+Display}}
+
+
+Collaboration diagram for Read\+And\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classReadAndDisplay__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Read\+And\+Display} (std\+::string input\+\_\+address, std\+::string output\+\_\+address)\hypertarget{classReadAndDisplay_abc3248778d9fb58ece40081c8e8a3cec}{}\label{classReadAndDisplay_abc3248778d9fb58ece40081c8e8a3cec}
+
+\item 
+void \hyperlink{classReadAndDisplay_a28a35e1606c6d0a80b585dae29d97c47}{read\+Frame} (int frame\+\_\+number)
+\begin{DoxyCompactList}\small\item\em \mbox{[}Lane\+Detector\+::read\+Frame\mbox{]} This file is a library file to read image frames from the input image as per the frame number given as argument. \end{DoxyCompactList}\item 
+void {\bfseries read} ()\hypertarget{classReadAndDisplay_a5bf23a016ae986bc4982073ecaf5a90a}{}\label{classReadAndDisplay_a5bf23a016ae986bc4982073ecaf5a90a}
+
+\item 
+void {\bfseries process\+Detection\+Images} (int i)\hypertarget{classReadAndDisplay_a9b5a7e9757d91b33d233d207b5296e60}{}\label{classReadAndDisplay_a9b5a7e9757d91b33d233d207b5296e60}
+
+\item 
+void \hyperlink{classReadAndDisplay_a512c21d08b094441598e43182bb967b0}{plot\+Polygon} ()
+\begin{DoxyCompactList}\small\item\em Lane\+Predictor\+::plot\+Polygon This file is a library file to plot a polygon over detected lanes on the output frame. \end{DoxyCompactList}\item 
+void {\bfseries lane\+Indicator\+Image} ()\hypertarget{classReadAndDisplay_ac5acb7150f9113e3659189120e050c22}{}\label{classReadAndDisplay_ac5acb7150f9113e3659189120e050c22}
+
+\item 
+void {\bfseries display} ()\hypertarget{classReadAndDisplay_a894e5b1a57e3f090ba0f65c7bb0ff86b}{}\label{classReadAndDisplay_a894e5b1a57e3f090ba0f65c7bb0ff86b}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static cv\+::\+Vec4d {\bfseries right\+\_\+lanes} \{0, 0, 0, 0\}\hypertarget{classReadAndDisplay_a04483639d6c547bb6e3c598b9509ce86}{}\label{classReadAndDisplay_a04483639d6c547bb6e3c598b9509ce86}
+
+\item 
+static cv\+::\+Vec4d {\bfseries left\+\_\+lanes} \{0, 0, 0, 0\}\hypertarget{classReadAndDisplay_aece1aa9f13da7af334ff2e5508ec9cf1}{}\label{classReadAndDisplay_aece1aa9f13da7af334ff2e5508ec9cf1}
+
+\item 
+static cv\+::\+Vec4d {\bfseries last\+\_\+lanes} \{0, 0, 0, 0\}\hypertarget{classReadAndDisplay_a82cb99a0205b878abc7804fcaecaecb9}{}\label{classReadAndDisplay_a82cb99a0205b878abc7804fcaecaecb9}
+
+\item 
+static cv\+::\+Vec4d {\bfseries last\+\_\+l\+\_\+lanes} \{0, 0, 0, 0\}\hypertarget{classReadAndDisplay_af14e3ccbe7799c91097c5da364bd3dfb}{}\label{classReadAndDisplay_af14e3ccbe7799c91097c5da364bd3dfb}
+
+\item 
+static cv\+::\+Vec4d {\bfseries yellow\+\_\+lanes} \{0, 0, 0, 0\}\hypertarget{classReadAndDisplay_a803bfc868546f74458ea96b9e226a5af}{}\label{classReadAndDisplay_a803bfc868546f74458ea96b9e226a5af}
+
+\item 
+static std\+::vector$<$ std\+::vector$<$ cv\+::\+Vec4i $>$ $>$ {\bfseries all\+\_\+lanes}\hypertarget{classReadAndDisplay_a1389b57eef01ceb45d76564e4cff6184}{}\label{classReadAndDisplay_a1389b57eef01ceb45d76564e4cff6184}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Read\+And\+Display@{Read\+And\+Display}!plot\+Polygon@{plot\+Polygon}}
+\index{plot\+Polygon@{plot\+Polygon}!Read\+And\+Display@{Read\+And\+Display}}
+\subsubsection[{\texorpdfstring{plot\+Polygon()}{plotPolygon()}}]{\setlength{\rightskip}{0pt plus 5cm}void Read\+And\+Display\+::plot\+Polygon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classReadAndDisplay_a512c21d08b094441598e43182bb967b0}{}\label{classReadAndDisplay_a512c21d08b094441598e43182bb967b0}
+
+
+Lane\+Predictor\+::plot\+Polygon This file is a library file to plot a polygon over detected lanes on the output frame. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em input\+\_\+image} & \mbox{[}cv\+::\+Mat\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em yellow\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em white\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output \mbox{[}cv\+::\+Mat\mbox{]} 
+\end{DoxyReturn}
+\index{Read\+And\+Display@{Read\+And\+Display}!read\+Frame@{read\+Frame}}
+\index{read\+Frame@{read\+Frame}!Read\+And\+Display@{Read\+And\+Display}}
+\subsubsection[{\texorpdfstring{read\+Frame(int frame\+\_\+number)}{readFrame(int frame_number)}}]{\setlength{\rightskip}{0pt plus 5cm}void Read\+And\+Display\+::read\+Frame (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\+\_\+number}
+\end{DoxyParamCaption}
+)}\hypertarget{classReadAndDisplay_a28a35e1606c6d0a80b585dae29d97c47}{}\label{classReadAndDisplay_a28a35e1606c6d0a80b585dae29d97c47}
+
+
+\mbox{[}Lane\+Detector\+::read\+Frame\mbox{]} This file is a library file to read image frames from the input image as per the frame number given as argument. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em frame\+\_\+number} & \mbox{[}int\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frame \mbox{[}cv\+::\+Mat\mbox{]} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/include/Read\+And\+Display.\+hpp\item 
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/app/Read\+And\+Display.\+cpp\end{DoxyCompactItemize}

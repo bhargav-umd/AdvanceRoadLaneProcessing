@@ -32,10 +32,11 @@ Collaboration diagram for Lane\+Detector\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-cv\+::\+Mat \hyperlink{classLaneDetector_aa29c19c559518b81897c90e545c3aae1}{read\+Frame} (int frame\+\_\+number)
-\begin{DoxyCompactList}\small\item\em Reads a frame. \end{DoxyCompactList}\item 
+{\bfseries Lane\+Detector} (cv\+::\+Mat image)\hypertarget{classLaneDetector_acc1aae3bfdd21112a448956fb94d95a7}{}\label{classLaneDetector_acc1aae3bfdd21112a448956fb94d95a7}
+
+\item 
 cv\+::\+Mat \hyperlink{classLaneDetector_a5ad301b4756ae451f49b43947771c02f}{roi\+Mask\+Selection} (cv\+::\+Mat input\+\_\+image)
-\begin{DoxyCompactList}\small\item\em \{ selects a trapezoidal region in given image\} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Reads a frame. \end{DoxyCompactList}\item 
 cv\+::\+Mat \hyperlink{classLaneDetector_a2caab27786b6168a125313aa2c36434b}{edge\+Detector} (cv\+::\+Mat thresh\+\_\+image)
 \begin{DoxyCompactList}\small\item\em \{ applies canny edge detections on given image \} \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::vector$<$ cv\+::\+Vec4i $>$ $>$ \hyperlink{classLaneDetector_a88ab13cba16e8e817b6d913d5acd681b}{hough\+Transform} (cv\+::\+Mat)
@@ -140,35 +141,6 @@ fits a line over given input points This file is a library file to fit lines ove
 \begin{DoxyReturn}{Returns}
 \{ return two points based one fit line\} 
 \end{DoxyReturn}
-\index{Lane\+Detector@{Lane\+Detector}!read\+Frame@{read\+Frame}}
-\index{read\+Frame@{read\+Frame}!Lane\+Detector@{Lane\+Detector}}
-\subsubsection[{\texorpdfstring{read\+Frame(int frame\+\_\+number)}{readFrame(int frame_number)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Lane\+Detector\+::read\+Frame (
-\begin{DoxyParamCaption}
-\item[{int}]{frame\+\_\+number}
-\end{DoxyParamCaption}
-)}\hypertarget{classLaneDetector_aa29c19c559518b81897c90e545c3aae1}{}\label{classLaneDetector_aa29c19c559518b81897c90e545c3aae1}
-
-
-Reads a frame. 
-
-\mbox{[}\hyperlink{classLaneDetector_aa29c19c559518b81897c90e545c3aae1}{Lane\+Detector\+::read\+Frame}\mbox{]} This file is a library file to read image frames from the input image as per the frame number given as argument.
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em frame\+\_\+number} & The frame number\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{ frame of the given frame index\}
-\end{DoxyReturn}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em frame\+\_\+number} & \mbox{[}int\mbox{]} \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-frame \mbox{[}cv\+::\+Mat\mbox{]} 
-\end{DoxyReturn}
 \index{Lane\+Detector@{Lane\+Detector}!roi\+Mask\+Selection@{roi\+Mask\+Selection}}
 \index{roi\+Mask\+Selection@{roi\+Mask\+Selection}!Lane\+Detector@{Lane\+Detector}}
 \subsubsection[{\texorpdfstring{roi\+Mask\+Selection(cv\+::\+Mat input\+\_\+image)}{roiMaskSelection(cv::Mat input_image)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Lane\+Detector\+::roi\+Mask\+Selection (
@@ -178,10 +150,18 @@ frame \mbox{[}cv\+::\+Mat\mbox{]}
 )}\hypertarget{classLaneDetector_a5ad301b4756ae451f49b43947771c02f}{}\label{classLaneDetector_a5ad301b4756ae451f49b43947771c02f}
 
 
-\{ selects a trapezoidal region in given image\} 
+Reads a frame. 
 
-\hyperlink{classLaneDetector_a5ad301b4756ae451f49b43947771c02f}{Lane\+Detector\+::roi\+Mask\+Selection} This file is a library file to mask the input image with region of interest.
+\mbox{[}Lane\+Detector\+::read\+Frame\mbox{]} This file is a library file to read image frames from the input image as per the frame number given as argument.
 
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em frame\+\_\+number} & The frame number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{ frame of the given frame index\} \{ selects a trapezoidal region in given image\}
+\end{DoxyReturn}
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em input\+\_\+image} & The input image\\
@@ -189,6 +169,14 @@ frame \mbox{[}cv\+::\+Mat\mbox{]}
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \{ retuns region of interest in given image \}
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em frame\+\_\+number} & \mbox{[}int\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frame \mbox{[}cv\+::\+Mat\mbox{]} \hyperlink{classLaneDetector_a5ad301b4756ae451f49b43947771c02f}{Lane\+Detector\+::roi\+Mask\+Selection} This file is a library file to mask the input image with region of interest.
 \end{DoxyReturn}
 
 \begin{DoxyParams}[1]{Parameters}
@@ -202,5 +190,5 @@ roi cv\+::\+Mat
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Mid\+Term\+\_\+\+Lane\+Detection/include/Lane\+Detector.\+hpp\item 
-/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Mid\+Term\+\_\+\+Lane\+Detection/app/Lane\+Detector.\+cpp\end{DoxyCompactItemize}
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/include/Lane\+Detector.\+hpp\item 
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/app/Lane\+Detector.\+cpp\end{DoxyCompactItemize}

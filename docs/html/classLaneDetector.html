@@ -99,7 +99,7 @@ Inheritance diagram for LaneDetector:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLaneDetector__inherit__graph.png" border="0" usemap="#LaneDetector_inherit__map" alt="Inheritance graph"/></div>
 <map name="LaneDetector_inherit__map" id="LaneDetector_inherit__map">
-<area shape="rect" id="node2" href="classLanePredictor.html" title="Class for lane predictor. " alt="" coords="5,189,163,325"/>
+<area shape="rect" id="node2" href="classLanePredictor.html" title="Class for lane predictor. " alt="" coords="5,204,163,340"/>
 </map>
 </div>
 <div class="dynheader">
@@ -112,11 +112,11 @@ Collaboration diagram for LaneDetector:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa29c19c559518b81897c90e545c3aae1"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaneDetector.html#aa29c19c559518b81897c90e545c3aae1">readFrame</a> (int frame_number)</td></tr>
-<tr class="memdesc:aa29c19c559518b81897c90e545c3aae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a frame.  <a href="#aa29c19c559518b81897c90e545c3aae1">More...</a><br /></td></tr>
-<tr class="separator:aa29c19c559518b81897c90e545c3aae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1aae3bfdd21112a448956fb94d95a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc1aae3bfdd21112a448956fb94d95a7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>LaneDetector</b> (cv::Mat image)</td></tr>
+<tr class="separator:acc1aae3bfdd21112a448956fb94d95a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ad301b4756ae451f49b43947771c02f"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaneDetector.html#a5ad301b4756ae451f49b43947771c02f">roiMaskSelection</a> (cv::Mat input_image)</td></tr>
-<tr class="memdesc:a5ad301b4756ae451f49b43947771c02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ selects a trapezoidal region in given image}  <a href="#a5ad301b4756ae451f49b43947771c02f">More...</a><br /></td></tr>
+<tr class="memdesc:a5ad301b4756ae451f49b43947771c02f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a frame.  <a href="#a5ad301b4756ae451f49b43947771c02f">More...</a><br /></td></tr>
 <tr class="separator:a5ad301b4756ae451f49b43947771c02f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2caab27786b6168a125313aa2c36434b"><td class="memItemLeft" align="right" valign="top">cv::Mat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLaneDetector.html#a2caab27786b6168a125313aa2c36434b">edgeDetector</a> (cv::Mat thresh_image)</td></tr>
 <tr class="memdesc:a2caab27786b6168a125313aa2c36434b"><td class="mdescLeft">&#160;</td><td class="mdescRight">{ applies canny edge detections on given image }  <a href="#a2caab27786b6168a125313aa2c36434b">More...</a><br /></td></tr>
@@ -242,39 +242,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa29c19c559518b81897c90e545c3aae1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">cv::Mat LaneDetector::readFrame </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frame_number</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reads a frame. </p>
-<p>[<a class="el" href="classLaneDetector.html#aa29c19c559518b81897c90e545c3aae1" title="Reads a frame. ">LaneDetector::readFrame</a>] This file is a library file to read image frames from the input image as per the frame number given as argument.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame_number</td><td>The frame number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>{ frame of the given frame index}</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">frame_number</td><td>[int] </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frame [cv::Mat] </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a5ad301b4756ae451f49b43947771c02f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -289,8 +256,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>{ selects a trapezoidal region in given image} </p>
-<p><a class="el" href="classLaneDetector.html#a5ad301b4756ae451f49b43947771c02f" title="{ selects a trapezoidal region in given image} ">LaneDetector::roiMaskSelection</a> This file is a library file to mask the input image with region of interest.</p>
+<p>Reads a frame. </p>
+<p>[LaneDetector::readFrame] This file is a library file to read image frames from the input image as per the frame number given as argument.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame_number</td><td>The frame number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{ frame of the given frame index} { selects a trapezoidal region in given image}</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">input_image</td><td>The input image</td></tr>
@@ -298,6 +272,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>{ retuns region of interest in given image }</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">frame_number</td><td>[int] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>frame [cv::Mat] <a class="el" href="classLaneDetector.html#a5ad301b4756ae451f49b43947771c02f" title="Reads a frame. ">LaneDetector::roiMaskSelection</a> This file is a library file to mask the input image with region of interest.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">hsv_threshold</td><td>cv::Mat </td></tr>
@@ -309,8 +290,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/bob/Bob_old/Mathworks/MidTerm_LaneDetection/include/<a class="el" href="LaneDetector_8hpp_source.html">LaneDetector.hpp</a></li>
-<li>/home/bob/Bob_old/Mathworks/MidTerm_LaneDetection/app/LaneDetector.cpp</li>
+<li>/home/bob/Bob_old/Mathworks/AdvancedLane_Processing/include/<a class="el" href="LaneDetector_8hpp_source.html">LaneDetector.hpp</a></li>
+<li>/home/bob/Bob_old/Mathworks/AdvancedLane_Processing/app/LaneDetector.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

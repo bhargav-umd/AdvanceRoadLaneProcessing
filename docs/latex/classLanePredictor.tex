@@ -32,14 +32,15 @@ Collaboration diagram for Lane\+Predictor\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+{\bfseries Lane\+Predictor} (cv\+::\+Mat imagess)\hypertarget{classLanePredictor_a57bc13d1b363fad1de2336356377e8ff}{}\label{classLanePredictor_a57bc13d1b363fad1de2336356377e8ff}
+
+\item 
 cv\+::\+Mat \hyperlink{classLanePredictor_ada11760da395c1d2f9e6117212659742}{hsv\+ThresholdY} (cv\+::\+Mat frameP)
 \begin{DoxyCompactList}\small\item\em \{ to threshold the image to get only yellow lanes\} \end{DoxyCompactList}\item 
-cv\+::\+Vec4d \hyperlink{classLanePredictor_a2ab03a2ebd0cca2c27a5773533f16dd3}{detect\+Yellow} (cv\+::\+Mat)
+cv\+::\+Vec4d \hyperlink{classLanePredictor_a10bd6de18ad3ffb3f10c2385e32dfdee}{detect\+Yellow} ()
 \begin{DoxyCompactList}\small\item\em \{ It finds the yellow lane \} \end{DoxyCompactList}\item 
-cv\+::\+Mat \hyperlink{classLanePredictor_ab793993ceb4f18d3fcd2b57779fef859}{plot\+Polygon} (cv\+::\+Mat, cv\+::\+Vec4d, cv\+::\+Vec4d)
-\begin{DoxyCompactList}\small\item\em \{ to plot a polygon over detected lanes \} \end{DoxyCompactList}\item 
 std\+::string \hyperlink{classLanePredictor_ac930fa52cdede9afa25bbf7cafd8c6b5}{wrong\+Lane\+Predictor} (cv\+::\+Vec4d)
-\begin{DoxyCompactList}\small\item\em \{predict if vehicle is on wrong lane \} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \{ to plot a polygon over detected lanes \} \end{DoxyCompactList}\item 
 std\+::string \hyperlink{classLanePredictor_a9b72c2dfa77992f7f8e229c3a67103f7}{predict\+Turn} (cv\+::\+Vec4d, cv\+::\+Vec4d, cv\+::\+Mat)
 \begin{DoxyCompactList}\small\item\em \{function which calculates vanishing points and predicts turn \} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -50,16 +51,16 @@ Class for lane predictor.
 \subsection{Member Function Documentation}
 \index{Lane\+Predictor@{Lane\+Predictor}!detect\+Yellow@{detect\+Yellow}}
 \index{detect\+Yellow@{detect\+Yellow}!Lane\+Predictor@{Lane\+Predictor}}
-\subsubsection[{\texorpdfstring{detect\+Yellow(cv\+::\+Mat)}{detectYellow(cv::Mat)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Vec4d Lane\+Predictor\+::detect\+Yellow (
+\subsubsection[{\texorpdfstring{detect\+Yellow()}{detectYellow()}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Vec4d Lane\+Predictor\+::detect\+Yellow (
 \begin{DoxyParamCaption}
-\item[{cv\+::\+Mat}]{frame}
+{}
 \end{DoxyParamCaption}
-)}\hypertarget{classLanePredictor_a2ab03a2ebd0cca2c27a5773533f16dd3}{}\label{classLanePredictor_a2ab03a2ebd0cca2c27a5773533f16dd3}
+)}\hypertarget{classLanePredictor_a10bd6de18ad3ffb3f10c2385e32dfdee}{}\label{classLanePredictor_a10bd6de18ad3ffb3f10c2385e32dfdee}
 
 
 \{ It finds the yellow lane \} 
 
-\hyperlink{classLanePredictor_a2ab03a2ebd0cca2c27a5773533f16dd3}{Lane\+Predictor\+::detect\+Yellow}, returns end points of yellow lanes after curve fitting on points found from hough transform. This file is a library file to detect yellow lanes as per hsvthreshold output. This file inherits hsv\+ThresholdY, edge\+Detector, roi\+Mask\+Selection and line\+Fitting functions from \hyperlink{classLaneDetector}{Lane\+Detector} Class.
+\hyperlink{classLanePredictor_a10bd6de18ad3ffb3f10c2385e32dfdee}{Lane\+Predictor\+::detect\+Yellow}, returns end points of yellow lanes after curve fitting on points found from hough transform. This file is a library file to detect yellow lanes as per hsvthreshold output. This file inherits hsv\+ThresholdY, edge\+Detector, roi\+Mask\+Selection and line\+Fitting functions from \hyperlink{classLaneDetector}{Lane\+Detector} Class.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -106,45 +107,6 @@ Class for lane predictor.
 \begin{DoxyReturn}{Returns}
 threshold\+\_\+image \mbox{[}cv\+::\+Mat\mbox{]} 
 \end{DoxyReturn}
-\index{Lane\+Predictor@{Lane\+Predictor}!plot\+Polygon@{plot\+Polygon}}
-\index{plot\+Polygon@{plot\+Polygon}!Lane\+Predictor@{Lane\+Predictor}}
-\subsubsection[{\texorpdfstring{plot\+Polygon(cv\+::\+Mat, cv\+::\+Vec4d, cv\+::\+Vec4d)}{plotPolygon(cv::Mat, cv::Vec4d, cv::Vec4d)}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Lane\+Predictor\+::plot\+Polygon (
-\begin{DoxyParamCaption}
-\item[{cv\+::\+Mat}]{input\+\_\+image, }
-\item[{cv\+::\+Vec4d}]{yellow\+\_\+lanes, }
-\item[{cv\+::\+Vec4d}]{white\+\_\+lanes}
-\end{DoxyParamCaption}
-)}\hypertarget{classLanePredictor_ab793993ceb4f18d3fcd2b57779fef859}{}\label{classLanePredictor_ab793993ceb4f18d3fcd2b57779fef859}
-
-
-\{ to plot a polygon over detected lanes \} 
-
-\hyperlink{classLanePredictor_ab793993ceb4f18d3fcd2b57779fef859}{Lane\+Predictor\+::plot\+Polygon} This file is a library file to plot a polygon over detected lanes on the output frame.
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em \{} & image to plot lanes\} \\
-\hline
-\mbox{\tt in}  & {\em \{} & left lanes \} \\
-\hline
-\mbox{\tt in}  & {\em \{} & right lanes \}\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\{Image with polygon plot \}
-\end{DoxyReturn}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em input\+\_\+image} & \mbox{[}cv\+::\+Mat\mbox{]} \\
-\hline
-\mbox{\tt in}  & {\em yellow\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
-\hline
-\mbox{\tt in}  & {\em white\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-output \mbox{[}cv\+::\+Mat\mbox{]} 
-\end{DoxyReturn}
 \index{Lane\+Predictor@{Lane\+Predictor}!predict\+Turn@{predict\+Turn}}
 \index{predict\+Turn@{predict\+Turn}!Lane\+Predictor@{Lane\+Predictor}}
 \subsubsection[{\texorpdfstring{predict\+Turn(cv\+::\+Vec4d, cv\+::\+Vec4d, cv\+::\+Mat)}{predictTurn(cv::Vec4d, cv::Vec4d, cv::Mat)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Lane\+Predictor\+::predict\+Turn (
@@ -158,7 +120,7 @@ output \mbox{[}cv\+::\+Mat\mbox{]}
 
 \{function which calculates vanishing points and predicts turn \} 
 
-\mbox{[}\hyperlink{classLanePredictor_a9b72c2dfa77992f7f8e229c3a67103f7}{Lane\+Predictor\+::predict\+Turn}\mbox{]} This file is a library file to predict turns based on the concept of vanishing point.
+Lane\+Predictor\+::plot\+Polygon This file is a library file to plot a polygon over detected lanes on the output frame.
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -171,6 +133,18 @@ output \mbox{[}cv\+::\+Mat\mbox{]}
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 \{Output Image with predicted turns text \}
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em input\+\_\+image} & \mbox{[}cv\+::\+Mat\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em yellow\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
+\hline
+\mbox{\tt in}  & {\em white\+\_\+lanes} & \mbox{[}cv\+::\+Vec4d\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output \mbox{[}cv\+::\+Mat\mbox{]} \mbox{[}\hyperlink{classLanePredictor_a9b72c2dfa77992f7f8e229c3a67103f7}{Lane\+Predictor\+::predict\+Turn}\mbox{]} This file is a library file to predict turns based on the concept of vanishing point.
 \end{DoxyReturn}
 
 \begin{DoxyParams}[1]{Parameters}
@@ -193,10 +167,22 @@ output \mbox{[}cv\+::\+Mat\mbox{]}
 )}\hypertarget{classLanePredictor_ac930fa52cdede9afa25bbf7cafd8c6b5}{}\label{classLanePredictor_ac930fa52cdede9afa25bbf7cafd8c6b5}
 
 
-\{predict if vehicle is on wrong lane \} 
+\{ to plot a polygon over detected lanes \} 
 
 \mbox{[}\hyperlink{classLanePredictor_ac930fa52cdede9afa25bbf7cafd8c6b5}{Lane\+Predictor\+::wrong\+Lane\+Predictor} description\mbox{]} This file is a library file to predict vehicle position based on yellow lane w.\+r.\+t. the frame size. (Assuming Right-\/\+Hand Drive System)
 
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \{} & image to plot lanes\} \\
+\hline
+\mbox{\tt in}  & {\em \{} & left lanes \} \\
+\hline
+\mbox{\tt in}  & {\em \{} & right lanes \}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Image with polygon plot \} \{predict if vehicle is on wrong lane \}
+\end{DoxyReturn}
 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em \{} & yellow lane end points\}\\
@@ -217,5 +203,5 @@ lane\+\_\+indicator \mbox{[}string\mbox{]}
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Mid\+Term\+\_\+\+Lane\+Detection/include/Lane\+Predictor.\+hpp\item 
-/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Mid\+Term\+\_\+\+Lane\+Detection/app/Lane\+Predictor.\+cpp\end{DoxyCompactItemize}
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/include/Lane\+Predictor.\+hpp\item 
+/home/bob/\+Bob\+\_\+old/\+Mathworks/\+Advanced\+Lane\+\_\+\+Processing/app/Lane\+Predictor.\+cpp\end{DoxyCompactItemize}

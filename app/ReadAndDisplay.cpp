@@ -41,9 +41,11 @@ void ReadAndDisplay::processDetectionImages(int i) {
   this->copy_image = this->image.clone();
   LaneDetector ld(this->image);
   this->edge_image = ld.edgeDetector(this->image);
+  cv::imshow("edges on road", this->edge_image);
   this->roi_image = ld.roiMaskSelection(this->edge_image);
   // std::vector<std::vector<cv::Vec4i>> all_lanes =
   // ld.houghTransform(roi_image);
+  cv::imshow("roi image", this->roi_image);
   ReadAndDisplay::all_lanes = ld.houghTransform(roi_image);
   // Condition to check if right lanes are detected
   // Condition to check if right lanes are detected
@@ -114,12 +116,12 @@ void ReadAndDisplay::plotPolygon() {
   upper_white.x = x12 + (yupper - y12) / slope2;
   lower_white.x = x12 + (ylower - y12) / slope2;
 
-  std::cout << "lower_white x" << lower_white.x << std::endl;
-  std::cout << "lower_white y" << lower_white.y << std::endl;
-
-  std::cout << "upper_white x " << upper_white.x << std::endl;
-  std::cout << "Upper white y" << upper_white.y << std::endl;
-
+  /*  std::cout << "lower_white x" << lower_white.x << std::endl; */
+  // std::cout << "lower_white y" << lower_white.y << std::endl;
+  //
+  // std::cout << "upper_white x " << upper_white.x << std::endl;
+  // std::cout << "Upper white y" << upper_white.y << std::endl;
+  /*  */
   // Storing all points as vector, for plotting
   cv::Point pts[4] = {lower_yellow, upper_yellow, upper_white, lower_white};
   // drawing polygon using in-built opencv function
@@ -187,21 +189,20 @@ void ReadAndDisplay::display() {
   read();
   std::cout << "display started" << std::endl;
   std::cout << "adress output" << this->output_add << std::endl;
-  /*  cv::VideoWriter video(this->output_add, CV_FOURCC('M', 'J', 'P', 'G'),
-   * 10, */
-  /* cv::Size(this->frame_width, this->frame_height)); */
-  cv::VideoWriter video("../Output/LaneDetector.avi",
-                        CV_FOURCC('M', 'J', 'P', 'G'), 10,
-                        cv::Size(frame_width, frame_height));
+  cv::VideoWriter video(this->output_add, CV_FOURCC('M', 'J', 'P', 'G'), 10,
+                        cv::Size(this->frame_width, this->frame_height));
+  /* cv::VideoWriter video("../Output/LaneDetector.avi", */
+  // CV_FOURCC('M', 'J', 'P', 'G'), 10,
+  /* cv::Size(frame_width, frame_height)); */
 
-  for (int i = 1; i < 10 /*this->total_frames*/; ++i) {
+  for (int i = 1; i < this->total_frames; ++i) {
     processDetectionImages(i);
     //   cv::imshow("detection images", this->copy_image);
     plotPolygon();
     // cv::imshow("polygon", this->copy_image);
     laneIndicatorImage();
     // cv::imshow("lanes", this->copy_image);
-    cv::imshow("Frame", this->copy_image);
+    // cv::imshow("Frame", this->copy_image);
 
     video.write(this->copy_image);
 

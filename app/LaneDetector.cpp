@@ -29,11 +29,12 @@ LaneDetector::houghTransform(cv::Mat roi_image) {
 
   // finding hough lines
   cv::HoughLinesP(roi_image, lines_p, 1, CV_PI / 180, 20, 20, 30); // HoughP
-
+  cv::Mat cdst = roi_image.clone();
   // Calculate the slope of all the detected lines
   for (auto i : lines_p) {
     pnt1 = cv::Point(i[0], i[1]);
     pnt2 = cv::Point(i[2], i[3]);
+    cv::line(cdst, pnt1, pnt2, cv::Scalar(0, 0, 255), 3, cv::LINE_AA);
 
     // Calculating Slope
     double slope =
@@ -47,7 +48,7 @@ LaneDetector::houghTransform(cv::Mat roi_image) {
       selected_lines.push_back(i);
     }
   }
-
+  cv::imshow("lines", cdst);
   // Split the lines into right and left lines
   imgCenterY = static_cast<double>((roi_image.cols / 2));
   while (iter_size < selected_lines.size()) {
@@ -128,7 +129,7 @@ cv::Mat LaneDetector::edgeDetector(cv::Mat roi_image) {
   // cv::Canny(roi_image, edge, 0, 255, 3);
   cv::Canny(roi_image, edge, 50, 200, 3);
   edge.convertTo(edge_image, CV_8U);
-
+  cv::imshow("edge_Image", edge_image);
   return edge_image;
 }
 

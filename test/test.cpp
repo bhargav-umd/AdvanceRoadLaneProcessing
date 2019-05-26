@@ -108,20 +108,20 @@
 /**
  *@brief Test case to test if wrong lane detection is working.
  */
-TEST(LaneTest, Lane_correct) {
-  LanePredictor lp;
-  cv::Vec4d points(-596, 1124, 1083, -359);
-  EXPECT_EQ(lp.wrongLanePredictor(points), "Stay on this Lane!");
-}
-
+/* TEST(LaneTest, Lane_correct) { */
+//   LanePredictor lp;
+//   cv::Vec4d points(-596, 1124, 1083, -359);
+//   EXPECT_EQ(lp.wrongLanePredictor(points), "Stay on this Lane!");
+// }
+//
 /**
  *@brief Test case to test if wrong lane detection is working.
  */
-TEST(LaneTest, lane_wrong) {
-  LanePredictor lp;
-  cv::Vec4d points(120, -716, 556, 1481);
-  EXPECT_EQ(lp.wrongLanePredictor(points), "Wrong Lane!!");
-}
+// TEST(LaneTest, lane_wrong) {
+//   LanePredictor lp;
+//   cv::Vec4d points(120, -716, 556, 1481);
+//   EXPECT_EQ(lp.wrongLanePredictor(points), "Wrong Lane!!");
+/* } */
 
 /**
  *@brief Test cases to test if lane is detected and if the lane is going
