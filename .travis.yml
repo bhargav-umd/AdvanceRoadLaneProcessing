@@ -35,7 +35,7 @@ matrix:
             - libpng-dev
             - libtiff-dev
             - libjasper-dev
-            - libdc1394-22-dev
+              #- libdc1394-22-dev
       env: COMPILER=g++-5
 
 # OPEN CV INSTALLATION BEGINS
