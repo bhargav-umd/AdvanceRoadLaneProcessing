@@ -38,15 +38,18 @@ void ReadAndDisplay::processDetectionImages(int i) {
   //  for (int i = 1; i < this->total_frames; ++i) {
   // read();
   readFrame(i);
+  imwrite("../Output/leftturn.jpg", this->image);
+
   this->copy_image = this->image.clone();
   LaneDetector ld(this->image);
   this->edge_image = ld.edgeDetector(this->image);
-  cv::imshow("edges on road", this->edge_image);
+  ///  cv::imshow("edges on road", this->edge_image);
   this->roi_image = ld.roiMaskSelection(this->edge_image);
   // std::vector<std::vector<cv::Vec4i>> all_lanes =
   // ld.houghTransform(roi_image);
-  cv::imshow("roi image", this->roi_image);
-  ReadAndDisplay::all_lanes = ld.houghTransform(roi_image);
+  // cv::imshow("roi image", this->roi_image);
+  // cv::imwrite("../Output/roitest.jpg", this->roi_image);
+  ReadAndDisplay::all_lanes = ld.houghTransform(this->roi_image);
   // Condition to check if right lanes are detected
   // Condition to check if right lanes are detected
   // if not use the last detected lanes
@@ -195,19 +198,21 @@ void ReadAndDisplay::display() {
   // CV_FOURCC('M', 'J', 'P', 'G'), 10,
   /* cv::Size(frame_width, frame_height)); */
 
-  for (int i = 1; i < this->total_frames; ++i) {
-    processDetectionImages(i);
-    //   cv::imshow("detection images", this->copy_image);
-    plotPolygon();
-    // cv::imshow("polygon", this->copy_image);
-    laneIndicatorImage();
-    // cv::imshow("lanes", this->copy_image);
-    // cv::imshow("Frame", this->copy_image);
+  // for (int i = 436; i < = 436 /*this->total_frames */; ++i) {
+  int i = 436;
+  std::cout << "lane number: " << i << std::endl;
+  processDetectionImages(i);
+  //   cv::imshow("detection images", this->copy_image);
+  plotPolygon();
+  // cv::imshow("polygon", this->copy_image);
+  laneIndicatorImage();
 
-    video.write(this->copy_image);
+  cv::imshow("Frame", this->copy_image);
 
-    cv::waitKey(1);
-  }
+  video.write(this->copy_image);
+
+  cv::waitKey(0);
+  //}
   video.release();
   cv::destroyAllWindows();
 }

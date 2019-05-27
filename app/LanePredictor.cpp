@@ -95,7 +95,12 @@ cv::Vec4d LanePredictor::detectYellow() {
   if (selected_lines.size() > 0) {
     yellow_lanes = LanePredictor::lineFitting(selected_lines, copy_fame);
   }
-
+  //  std::cout << "lines is  " << std::endl;
+  /*   std::cout << yellow_lanes[0] << std::endl; */
+  // std::cout << yellow_lanes[1] << std::endl;
+  // std::cout << yellow_lanes[2] << std::endl;
+  // std::cout << yellow_lanes[3] << std::endl;
+  /*  */
   return yellow_lanes;
 }
 /**
@@ -241,7 +246,6 @@ std::string LanePredictor::predictTurn(cv::Vec4d left_lines,
       (slope1 * ((y22 - y11) - (slope2 * x22) + (slope2 * x11))) /
           (slope1 - slope2) +
       y11;
-
   // plotting vanishing point
   circle(input_image, vanishingPoint, 1, cv::Scalar(0, 255, 0), 3, 8, 0);
 
