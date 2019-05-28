@@ -41,7 +41,7 @@ void ReadAndDisplay::processDetectionImages(int i) {
   //  for (int i = 1; i < this->total_frames; ++i) {
   // read();
   readFrame(i);
-  imwrite("../Output/leftturn.jpg", this->image);
+  // imwrite("../Output/leftturn.jpg", this->image);
 
   this->copy_image = this->image.clone();
   LaneDetector ld(this->image);
@@ -148,7 +148,7 @@ void ReadAndDisplay::plotPolygon() {
   cv::addWeighted(output, 0.3, this->copy_image, 1.0 - 0.3, 0,
                   this->copy_image);
   // cv::imshow("transparent?", output);
-  //  this->polygon_image = output;
+  this->polygon_image = output;
   // this->copy_image = output;
 }
 
@@ -191,6 +191,7 @@ void ReadAndDisplay::laneIndicatorImage() {
   }
 }
 
+cv::Mat ReadAndDisplay::getPolygonImage() { return this->polygon_image; }
 void ReadAndDisplay::display() {
   read();
   std::cout << "display started" << std::endl;

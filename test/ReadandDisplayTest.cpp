@@ -10,3 +10,12 @@ TEST(ReadAndDisplayTest, readtest) {
   EXPECT_EQ(rdtest.getFrameWidth(), 640);
   EXPECT_EQ(rdtest.getFrameHeight(), 480);
 }
+
+TEST(ReadAndDisplayTest, polygonTest) {
+  rdtest.read();
+  rdtest.processDetectionImages(436);
+  rdtest.plotPolygon();
+  cv::Mat polygon = rdtest.getPolygonImage();
+  EXPECT_EQ(polygon.cols, 640);
+  EXPECT_EQ(polygon.rows, 480);
+}
