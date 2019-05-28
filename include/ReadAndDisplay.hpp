@@ -42,6 +42,8 @@ public:
   void plotPolygon();
   void laneIndicatorImage();
   void display();
+  int getFrameWidth();
+  int getFrameHeight();
 };
 /* cv::Vec4d ReadAndDisplay::right_lanes{0, 0, 0, 0}; */
 // cv::Vec4d ReadAndDisplay::left_lanes{0, 0, 0, 0};

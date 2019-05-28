@@ -10,6 +10,9 @@ cv::Vec4d ReadAndDisplay::last_l_lanes{0, 0, 0, 0};
 cv::Vec4d ReadAndDisplay::yellow_lanes{0, 0, 0, 0};
 std::vector<std::vector<cv::Vec4i>> ReadAndDisplay::all_lanes;
 
+int ReadAndDisplay::getFrameWidth() { return this->frame_width; }
+int ReadAndDisplay::getFrameHeight() { return this->frame_height; }
+
 /**
  * @brief  [LaneDetector::readFrame]
  *          This file is a library file to read image frames

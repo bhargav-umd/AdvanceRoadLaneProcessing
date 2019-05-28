@@ -8,7 +8,8 @@ FIND_PACKAGE( OpenCV REQUIRED)
 add_executable( cpp-test 
 		main.cpp 
         LaneDetectorTest.cpp 
-        LanePredictorTest.cpp 
+        LanePredictorTest.cpp
+        ReadandDisplayTest.cpp 
         ../app/LaneDetector.cpp 
         ../app/LanePredictor.cpp
        ../app/ReadAndDisplay.cpp  
