@@ -3,6 +3,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/bhargav-umd/AdvanceRoadLaneProcessing/badge.svg?branch=master)](https://coveralls.io/github/bhargav-umd/AdvanceRoadLaneProcessing?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ---
+This is extension of the earlier work, which can be found here
+https://github.com/mayankpathak10/MidTerm_LaneDetection
+
 
 ## Team Members
 - Mayank Pathak
